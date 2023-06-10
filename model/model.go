@@ -2,6 +2,7 @@ package model
 
 import (
 	"gopkg.in/yaml.v2"
+	"time"
 )
 
 type ASInfo struct {
@@ -10,7 +11,8 @@ type ASInfo struct {
 	IPv4  []string `yaml:"ipv4"`
 	IPv6  []string `yaml:"ipv6"`
 
-	Path string `yaml:"-"`
+	Path      string    `yaml:"-"`
+	UpdatedAt time.Time `yaml:"-"`
 }
 
 func (i ASInfo) YAML() []byte {
@@ -20,9 +22,10 @@ func (i ASInfo) YAML() []byte {
 
 func (i ASInfo) Clone() ASInfo {
 	clone := ASInfo{
-		ASN:   i.ASN,
-		Owner: i.Owner,
-		Path:  i.Path,
+		ASN:       i.ASN,
+		Owner:     i.Owner,
+		Path:      i.Path,
+		UpdatedAt: i.UpdatedAt,
 	}
 	for _, v := range i.IPv4 {
 		clone.IPv4 = append(clone.IPv4, v)

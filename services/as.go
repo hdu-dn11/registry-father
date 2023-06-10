@@ -42,6 +42,8 @@ func GetASInfoList() ([]*model.ASInfo, error) {
 		if err != nil || uint32(asn) != asInfo.ASN {
 			continue
 		}
+		fInfo, _ := file.Info()
+		asInfo.UpdatedAt = fInfo.ModTime()
 		list = append(list, asInfo)
 	}
 	return list, nil
