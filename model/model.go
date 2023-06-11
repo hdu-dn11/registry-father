@@ -27,11 +27,7 @@ func (i ASInfo) Clone() ASInfo {
 		Path:      i.Path,
 		UpdatedAt: i.UpdatedAt,
 	}
-	for _, v := range i.IPv4 {
-		clone.IPv4 = append(clone.IPv4, v)
-	}
-	for _, v := range i.IPv6 {
-		clone.IPv6 = append(clone.IPv6, v)
-	}
+	clone.IPv4 = append(clone.IPv4, i.IPv4...)
+	clone.IPv6 = append(clone.IPv6, i.IPv6...)
 	return clone
 }

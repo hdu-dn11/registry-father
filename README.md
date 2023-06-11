@@ -28,3 +28,10 @@ cmd: CLI 命令
 ```shell
 ./register-father check
 ```
+
+
+## 贡献
+
+非常感谢您参与到这个项目中来，我们欢迎任何类型的贡献。
+
+如果您想为该项目贡献代码，请您遵守[约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/)规范。

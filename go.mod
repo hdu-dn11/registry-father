@@ -8,7 +8,6 @@ require (
 	github.com/seancfoley/ipaddress-go v1.5.4
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.8.3
-	github.com/yl2chen/cidranger v1.0.2
 	gopkg.in/yaml.v2 v2.4.0
 )
 
