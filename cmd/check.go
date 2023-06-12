@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"os"
 	"registry-father/services"
 	"sort"
 )
@@ -14,7 +15,7 @@ var checkCmd = &cobra.Command{
 		list, err := services.GetASInfoList()
 		if err != nil {
 			fmt.Println(err)
-			return
+			os.Exit(1)
 		}
 
 		// Check if latest AS info conflict with previous
@@ -27,6 +28,7 @@ var checkCmd = &cobra.Command{
 		for i := 1; i < len(list); i++ {
 			if services.CheckCIDRConflict(list[0], list[i]) {
 				fmt.Printf("AS%d conflict with AS%d\n", list[0].ASN, list[i].ASN)
+				os.Exit(1)
 			}
 		}
 	},
