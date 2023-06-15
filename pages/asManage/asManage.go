@@ -152,7 +152,7 @@ func (f *ASInfoForm) Load(info *model.ASInfo) {
 		SetChangedFunc(func() {
 			input := IPv6Input.GetText()
 			tmpInfo.IPv6 = strings.Split(input, "\n")
-			IPv6Input.SetSize(len(tmpInfo.IPv6)+1, len("255.255.255.255/32"))
+			IPv6Input.SetSize(len(tmpInfo.IPv6)+1, len("1111:1111:1111:1111:1111:1111:1111:1111/128"))
 		})
 	f.AddFormItem(IPv6Input)
 
